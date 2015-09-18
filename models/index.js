@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var chalk = require('chalk');
 
-mongoose.connect("mongodb://localhost/tp-ui-static", function(err){
+mongoose.connect("mongodb://localhost/tripPlanner", function(err){
   if(err)
     return console.log(chalk.red(err));
 
@@ -52,9 +52,20 @@ var ActivitySchema = mongoose.Schema(
 
 Activity = mongoose.model('activity', ActivitySchema);
 
+
+var DaySchema = mongoose.Schema({
+  number: Number,
+  hotel: { type: mongoose.Schema.Types.ObjectId, ref: 'Hotel' },
+  restaurants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Restaurant' }],
+  activities: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Activity' }]
+})
+
+Day = mongoose.model('day', DaySchema);
+
 module.exports = {
   Place: Place,
   Hotel: Hotel,
   Restaurant: Restaurant,
-  Activity: Activity
+  Activity: Activity,
+  Day: Day
 }

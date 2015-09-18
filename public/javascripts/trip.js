@@ -1,5 +1,5 @@
 function Trip(){
-  this.days = [ new Day()];
+  this.days = [];
   this.idx = 0;
 }
 
