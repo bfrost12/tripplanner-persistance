@@ -6,12 +6,15 @@ var models = require('./models');
 var Hotel = models.Hotel;
 var Restaurant = models.Restaurant;
 var Activity = models.Activity;
+var Days = models.Day;
 var swig = require('swig');
 var path = require('path');
+var apiRoutes = require('./routes/api')
 
 var app = express();
 
 app.use(express.static(path.join(__dirname , 'public')));
+app.use(express.static(path.join(__dirname , 'vendor')));
 
 swig.setDefaults({ cache: false });
 
@@ -51,6 +54,9 @@ app.get('/', function(req, res, next){
     });
 
 });
+
+
+app.use('/api', apiRoutes);
 
 // app.use(function(err, req, res, next){
   // console.log(err.message);

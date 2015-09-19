@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "API_KEY=your_key_here nodemon app.js",
+    "start": "API_KEY=AIzaSyDIRBAPyfPOtNSObXJ1obkDh6mpfD3b_z0 nodemon app.js",
     "test": "karma start"
   },
   "author": "",
